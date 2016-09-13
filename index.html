@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html ng-app="SliderApp">
+<head>
+	<title>Slider by Nilesh Mistry</title>
+	<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
+	<link rel="stylesheet" type="text/css" href="./css/app.css">
+	<script src="https://code.jquery.com/jquery-3.1.0.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular-animate.js"></script>
+</head>
+<body ng-controller="SliderAppCtrl">
+	<div class="app-body">
+		<div class="center-row">
+			<div class="col-sm-1 col-md-1 app-left-col">
+				<div class="row center-profile-image">
+					<img src="./assets/profile-avatar.png"/>
+				</div>
+				<div class="row left-col-seperator">
+					<a href="javascript:void(0);" ng-click="toggleMenu();" class="hamburg-icon">
+						<span><i class="fa fa-bars fa-lg" aria-hidden="true"></i></span>
+					</a>
+				</div>
+				<div class="row left-col-seperator">
+					<img src="./assets/pagecontent-plusicon.png">
+				</div>
+				<div class="row left-col-seperator">
+					<img src="./assets/pagecontent-search-icon.png">
+				</div>
+			</div>
+			<div class="col-sm-9 col-md-9 app-right-col">
+				<img src="./assets/dummy-page-content.png">
+				<!-- <div class="row slider-app-header">
+					<span class="header-label">Explore the Community</span>
+				</div>
+				<div class="row slider-app-container">
+					
+				</div> -->
+			</div>
+			<div class="left-navigation-container" ng-hide="!isMenuOpen" click-anywhere-but-here="closeMenu()">
+				<div class="container user-profile-container">
+					<div class="row row-centered">
+						<div class="col-sm-3 col-md-3 col-centered">
+							<span class="pull-right"><img src="./assets/profile-avatar.png"/></span>
+						</div>
+						<div class="col-sm-9 col-md-9 col-centered profile-name-container">
+							<span class="profile-name"><b>Margaret Macdiarmid</b></span>
+						</div>
+					</div>
+					<div class="row row-centered user-profile-seperator">
+							<span class="user-profile-status-icons">
+								<img src="./assets/user-stats-chat-icon.png">&nbsp;12
+							</span>
+							<span class="user-profile-status-icons">
+								<img src="./assets/user-stats-users-icon.png">&nbsp;11/43
+							</span>
+							<span class="user-profile-status-icons">
+								<img src="./assets/user-stats-in-common-icon.png">&nbsp;3
+							</span>
+					</div>
+				</div>
+				<div class="row">
+					<div class="left-menu-notifications-tab">
+						<img src="./assets/navigation-icons-bell.png">
+						<span class="badge left-menu-notifications-badge">4</span>&nbsp;
+						Notifications
+					</div>
+					<div class="left-menu-tabs-seperator"></div>
+					<div class="left-menu-help-tab">
+						<img src="./assets/navigation-icons-help.png">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Help
+					</div>
+					<div class="left-menu-tabs-seperator"></div>
+					<div class="left-menu-sign-out-tab">
+						<img src="./assets/navigation-icons-exit.png">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Sign Out
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<script type="text/javascript">
+		angular.module('SliderApp', ['ngAnimate'])
+			.controller('SliderAppCtrl', ['$scope', function($scope){
+				$scope.isMenuOpen = false;
+				$scope.toggleMenu = function() {
+					$scope.onLoad = true;
+					$scope.isMenuOpen = !$scope.isMenuOpen;
+				}
+				$scope.closeMenu = function() {
+					$scope.isMenuOpen = $scope.isMenuOpen ? true : false;
+					if(!$scope.onLoad && $scope.isMenuOpen) {
+						$scope.isMenuOpen = $scope.isMenuOpen ? false : true;
+					}
+					$scope.onLoad = false;
+				}
+			}])
+			.directive('clickAnywhereButHere', function($document){
+				return {
+					restrict: 'A',
+					link: function(scope, elem, attr, ctrl) {
+						elem.bind('click', function(e) {
+							e.stopPropagation();
+						});
+						$document.bind('click', function() {
+							scope.$apply(attr.clickAnywhereButHere);
+						});
+					}
+				}
+			});
+	</script>
+</body>
+</html>
