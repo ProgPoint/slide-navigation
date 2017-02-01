@@ -109,3 +109,18 @@
 	margin-top: -15px;
 	background-color: #50E3C2;
 }
+
+.left-nav-notifications-link:visited
+.left-nav-notifications-link:hover,
+.left-nav-help-link:hover,
+.left-nav-help-link:visited {
+	text-decoration: none;
+}
+
+.help-content-div,
+.notifications-content-div {
+	margin-left: 25%;
+    margin-top: 25%;
+    font-size: 2em;
+    font-weight: bold;
+}

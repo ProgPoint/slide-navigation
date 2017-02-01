@@ -1,0 +1,42 @@
+<div class="left-navigation-container" ng-show="$ctrl.isSidePanelOpen" click-anywhere-but-here="$ctrl.closeMenu()">
+	<div class="container user-profile-container">
+		<div class="row row-centered">
+			<div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 col-centered">
+				<span class="pull-right"><img src="./layout/assets/profile-avatar.png"/></span>
+			</div>
+			<div class="col-sm-9 col-md-9 col-centered profile-name-container">
+				<span class="profile-name"><b>Margaret Macdiarmid</b></span>
+			</div>
+		</div>
+		<div class="row row-centered user-profile-seperator">
+				<span class="user-profile-status-icons">
+					<img src="./layout/assets/user-stats-chat-icon.png">&nbsp;12
+				</span>
+				<span class="user-profile-status-icons">
+					<img src="./layout/assets/user-stats-users-icon.png">&nbsp;11/43
+				</span>
+				<span class="user-profile-status-icons">
+					<img src="./layout/assets/user-stats-in-common-icon.png">&nbsp;3
+				</span>
+		</div>
+	</div>
+	<div class="row">
+		<div class="left-menu-notifications-tab">
+			<img src="./layout/assets/navigation-icons-bell.png">
+			<a href="javascript:void(0);" ui-sref="app.notification.list" class="left-nav-notifications-link">
+				<span class="badge left-menu-notifications-badge">4</span>&nbsp;
+				Notifications
+			</a>
+		</div>
+		<div class="left-menu-tabs-seperator"></div>
+		<div class="left-menu-help-tab">
+			<img src="./layout/assets/navigation-icons-help.png">
+			<a href="javascript:void(0);" ui-sref="app.help.list" class="left-nav-help-link">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Help
+			</a>
+		</div>
+		<div class="left-menu-tabs-seperator"></div>
+		<div class="left-menu-sign-out-tab">
+			<img src="./layout/assets/navigation-icons-exit.png">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Sign Out
+		</div>
+	</div>
+</div>
